@@ -1,21 +1,18 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Курсач
 {
     public partial class Form1 : Form
     {
+        int k = 0;
+        int f = 0;
         public Form1()
         {
             InitializeComponent();
+            ConnectDB();
+            this.FormClosed += (s, args) => Application.Exit();
         }
         private NpgsqlConnection ConnectDB()
         {
@@ -46,6 +43,49 @@ namespace Курсач
             {
                 MessageBox.Show("ты гений!!");
             }
+        }
+
+        private void textBoxEmail_Click(object sender, EventArgs e)
+        {
+            
+            if(k==0)
+            {
+                 textBoxEmail.Text = ""; k++;   
+            }
+            else {
+                if (textBoxEmail.Text == "") { textBoxEmail.Text = "Email"; k = 0; }
+            }
+            
+
+        }
+
+        private void labelEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void textBoxPassword_Click(object sender, EventArgs e)
+        {
+            if (f == 0)
+            {
+                textBoxPassword.Text = ""; f++;
+            }
+            else
+            {
+                if (textBoxPassword.Text == "") { textBoxEmail.Text = "Password"; f = 0; }
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
